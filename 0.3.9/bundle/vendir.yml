@@ -1,0 +1,21 @@
+apiVersion: vendir.k14s.io/v1alpha1
+kind: Config
+minimumRequiredVersion: 0.12.0
+directories:
+- path: config/upstream
+  contents:
+  - path: kube-vip
+    git:
+      url: https://github.com/kube-vip/kube-vip
+      ref: v0.3.9
+    newRootPath: docs/manifests
+    includePaths:
+    - docs/manifests/v0.3.9/kube-vip-arp-ds.yaml
+    - docs/manifests/rbac.yaml
+  - path: kube-vip-cloud-provider
+    git:
+      url: https://github.com/kube-vip/kube-vip-cloud-provider
+      ref: v0.0.1
+    newRootPath: manifest
+    includePaths:
+    - manifest/kube-vip-cloud-controller.yaml

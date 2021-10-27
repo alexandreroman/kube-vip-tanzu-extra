@@ -1,0 +1,17 @@
+apiVersion: vendir.k14s.io/v1alpha1
+directories:
+- contents:
+  - git:
+      commitTitle: 'Merge pull request #285 from thebsdbox/localhost...'
+      sha: c94c15a6b936499c52be00c4aac3ce511c001992
+      tags:
+      - v0.3.9
+    path: kube-vip
+  - git:
+      commitTitle: Update main.yml
+      sha: a64d4b984fbb08085a0184d67da988e8d85fa033
+      tags:
+      - v0.0.1
+    path: kube-vip-cloud-provider
+  path: config/upstream
+kind: LockConfig

@@ -1,0 +1,11 @@
+#@ load("@ytt:data", "data")
+
+#@yaml/text-templated-strings
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kubevip
+  namespace: kube-system
+data:
+  range-global: #@ ",".join(data.values.kubevip.addresses)

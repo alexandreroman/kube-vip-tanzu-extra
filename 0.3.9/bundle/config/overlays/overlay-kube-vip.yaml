@@ -1,0 +1,40 @@
+#@ load("@ytt:overlay", "overlay")
+
+#@overlay/match by=overlay.subset({"kind": "DaemonSet", "metadata":{"name":"kube-vip-ds"}}),expects=1
+---
+spec:
+  template:
+    spec:
+      containers:
+      #@overlay/match by="name"
+      - name: kube-vip
+        imagePullPolicy: IfNotPresent
+        env:
+        #@overlay/match by="name"
+        #@overlay/remove
+        - name: vip_ddns
+        #@overlay/match by="name"
+        #@overlay/remove
+        - name: cp_enable
+        #@overlay/match by="name"
+        #@overlay/remove
+        - name: cp_namespace
+        #@overlay/match by="name"
+        #@overlay/remove
+        - name: vip_leaderelection
+        #@overlay/match by="name"
+        #@overlay/remove
+        - name: vip_leaseduration
+        #@overlay/match by="name"
+        #@overlay/remove
+        - name: vip_renewdeadline
+        #@overlay/match by="name"
+        #@overlay/remove
+        - name: vip_retryperiod
+        #@overlay/match by="name"
+        #@overlay/remove
+        - name: vip_address
+        - name: vip_startleader
+          value: "false"
+        - name: vip_addpeerstolb
+          value: "true"
